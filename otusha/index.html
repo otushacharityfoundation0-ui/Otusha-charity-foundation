@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otusha Charity Foundation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="icon" href="./image/logo.png">
+    <style>
+        :root {
+            --primary: #1b7a43;
+            --primary-hover: #145c32;
+            --primary-light: #e8f5e9;
+            --dark: #0f172a;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 8px;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Slim Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.60rem 4%;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 27px;
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 0.9rem;
+            color: var(--dark);
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 14px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.78rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .header-socials {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .header-socials a {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .header-socials a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Background Slider */
+        .hero-slider {
+            position: relative;
+            height: 75vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            padding: 0 24px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: rgba(27, 122, 67, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #81e6d9;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-content p {
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            color: #e2e8f0;
+            font-weight: 400;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(27, 122, 67, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background-color: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 12px;
+        }
+
+        /* Layout Containers */
+        .container {
+            max-width: 1140px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.1rem;
+            color: var(--dark);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* About & CAC Section */
+        .about-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .cac-badge-box {
+            background-color: var(--primary-light);
+            border: 2px dashed var(--primary);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cac-badge-box img {
+            max-width: 100%;
+            height: auto;
+            max-height: 160px;
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 10px;
+            background: #fff;
+        }
+
+        .cac-badge-box h4 {
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .cac-badge-box p {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
+        /* Leadership Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 16px auto;
+            border: 3px solid var(--primary-light);
+        }
+
+        .team-card h4 {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .team-position {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .team-socials {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .team-socials a {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .team-socials a:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Activities Gallery Section */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .activity-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .activity-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .activity-info {
+            padding: 18px;
+        }
+
+        .activity-info h4 {
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .activity-info p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Call To Action */
+        .cta-section {
+            background-color: var(--dark);
+            color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 45px 24px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 24px auto;
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 480px;
+            padding: 28px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .modal-header h3 {
+            font-size: 1.25rem;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            background: #f1f5f9;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            outline: none;
+            background-color: #f8fafc;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27, 122, 67, 0.15);
+            background-color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 45px 24px 20px 24px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 36px;
+            margin-bottom: 24px;
+        }
+
+        .footer-brand h3 {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            font-size: 0.88rem;
+            max-width: 320px;
+        }
+
+        .footer-bottom {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding-top: 18px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.82rem;
+        }
+
+        /* Responsive Header & Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--dark);
+            cursor: pointer;
+            font-size: 0.95rem;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        nav a i {
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        @media (max-width: 850px) {
+            header {
+                justify-content: space-between;
+                flex-wrap: nowrap;
+                padding: 0.3rem 4%;
+                position: sticky;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                margin-left: auto;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                border-top: 1px solid var(--border-color);
+                box-shadow: var(--shadow-lg);
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-8px);
+                transition: max-height 0.3s ease, opacity 0.25s ease,
+                    transform 0.25s ease, visibility 0.25s ease;
+            }
+
+            nav.mobile-open {
+                max-height: 430px;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 5% 12px;
+            }
+
+            nav li {
+                border-bottom: 1px solid #eef2f7;
+            }
+
+            nav li:last-child {
+                border-bottom: none;
+            }
+
+            nav a {
+                padding: 13px 8px;
+                font-size: 0.92rem;
+            }
+
+            nav a i {
+                width: 24px;
+                text-align: center;
+            }
+
+            .header-socials {
+                display: none;
+            }
+
+            .logo-text {
+                font-size: 0.82rem;
+            }
+
+            .logo-container img {
+                height: 25px;
+            }
+
+            .about-card {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 0.78rem;
+            }
+
+            .mobile-menu-btn {
+                width: 32px;
+                height: 32px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.15rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .team-grid,
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo-container">
+            <img src="./image/logo.png" alt="Otusha Charity Foundation Logo" />
+            <div class="logo-text">Otusha <span>Foundation</span></div>
+        </a>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="main-nav">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#about"><i class="fa-solid fa-circle-info"></i> About</a></li>
+                <li><a href="#activities"><i class="fa-solid fa-bullseye"></i> Activities</a></li>
+                <li><a href="#leadership"><i class="fa-solid fa-users"></i> Leadership</a></li>
+                <li><a href="#sponsorship"><i class="fa-solid fa-hand-holding-heart"></i> Sponsorship</a></li>
+                <li><a href="#volunteer"><i class="fa-solid fa-handshake-angle"></i> Volunteer</a></li>
+                <li><a href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-socials">
+            <a href="https://www.facebook.com/share/19LmeAbJmZ/" target="_blank" aria-label="Facebook"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/OtushaFoundatuion" target="_blank" aria-label="Twitter"><i
+                    class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/otushafoundation?igsi=cW96emFmNzBid2Z4" target="_blank"
+                aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/otusha-foundation-88740b431" target="_blank" aria-label="LinkedIn"><i
+                    class="fab fa-linkedin-in"></i></a>
+        </div>
+    </header>
+
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('./image/image4.jpeg');">
+        </div>
+        <div class="slide" style="background-image: url('./image/image1.jpeg');">
+        </div>
+        <div class="slide" style="background-image: url('./image/image2.jpeg');">
+        </div>
+        <div class="slide" style="background-image: url('./image/image3.jpeg');">
+        </div>
+        <div class="slide" style="background-image: url('./image/image5.jpeg');">
+        </div>
+        <div class="slide" style="background-image: url('./image/image6.jpeg');">
+        </div>
+        <div class="slide-overlay"></div>
+
+        <div class="hero-content">
+            <span class="hero-badge">Registered Non-Profit NGO</span>
+            <h1>Empowering Communities, Changing Lives</h1>
+            <p>Otusha Charity Foundation is dedicated to healthcare outreach, educational development, and sustainable
+                empowerment.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openModal('sponsor-modal')">
+                    <i class="fa-solid fa-heart"></i> Become a Sponsor
+                </button>
+                <button class="btn btn-secondary" onclick="openModal('volunteer-modal')">
+                    <i class="fa-solid fa-hands-helping"></i> Volunteer With Us
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <section id="about">
+            <div class="section-header">
+                <h2>About Otusha Foundation</h2>
+                <p>Committed to transparency, compliance, and real impact.</p>
+            </div>
+
+            <div class="about-card">
+                <div class="about-text">
+                    <h3>Driven by Integrity & Compassion</h3>
+                    <p><strong>Otusha Charity Foundation</strong> is a non-governmental organization (NGO) committed to
+                        uplifting communities through comprehensive humanitarian aid, educational advancement, and
+                        entrepreneurship development.</p>
+                    <p>Established in the year 2010 with a vision of creating a world where every individual has the
+                        opportunity to thrive, the foundation operates with a set of core values centered on compassion,
+                        collaboration, integrity, empowerment, and innovation. This comprehensive blueprint outlines the
+                        foundation's mission, vision, core values, objectives, and implementation strategies, aimed at
+                        making a sustainable impact on the lives of individuals and communities in Nigeria and beyond.
+                    </p>
+
+                </div>
+
+                <div class="cac-badge-box">
+                    <img src="./image/WhatsApp Image 2026-08-28 at 11.38.40 AM.jpeg" alt="">
+                    <p class="cac">CAC Certificate</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="leadership" style="margin-top: 70px;">
+            <div class="section-header">
+                <h2>Our Leadership</h2>
+                <p>Meet the dedicated team guiding our mission and community programs.</p>
+            </div>
+
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="./image/ceo.jpeg" alt="Muhammad Rilwan Ahmed" class="team-avatar" />
+                    <h4>Muhammad Rilwan Ahmed (Salanken Keana)</h4>
+                    <div class="team-position">Chairman</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/share/1JphrJpAaM/" target="_blank" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:sagirrilwan110@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/chief operating officer.jpeg" alt="John Peter" class="team-avatar" />
+                    <h4>Fawziyyah Oyiwoza Kuyanbana</h4>
+                    <div class="team-position">Chief Operating Officer</div>
+                    <div class="team-socials">
+                        <a href="https://www.linkedin.com/in/fawziyyah-kuyanbana" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:fawzeeyahk@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/general secretary.jpeg" alt="Grace Daniel" class="team-avatar" />
+                    <h4> Yakubu Daniel Terhemen</h4>
+                    <div class="team-position">General Secretary</div>
+                    <div class="team-socials">
+                        <a href="" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:yakubudanielterhemen@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/financial secretary.jpeg" alt="Grace Daniel" class="team-avatar" />
+                    <h4>Aisha Abdulrazak Adasho </h4>
+                    <div class="team-position">Financial Secretary</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/share/1DMDtid11b/?mibextid=wwXIfr" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:otunshaaishat@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/publicR.jpeg" alt="Emmanuel Okonkwo" class="team-avatar" />
+                    <h4>Muhammad Aliyu Agwai </h4>
+                    <div class="team-position">public relation manager</div>
+                    <div class="team-socials">
+                        <a href="https://www.instagram.com/_tada_mai?igsi=M3hrZGh2dW92dHI%3D&utm_source=qr"
+                            target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:aliyumuhammadagwai18@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/press secretary.jpeg" alt="Samuel James" class="team-avatar" />
+                    <h4>Muhammad Umar Baba</h4>
+                    <div class="team-position">Press Secretary</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/share/1H6nJGexGN/" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:Muhammadjegaaa@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/media and publicity.jpeg" alt="Aisha Bello" class="team-avatar" />
+                    <h4>Umar Abubakar Suleiman</h4>
+                    <div class="team-position">Media and Publicity</div>
+                    <div class="team-socials">
+                        <a href="https://web.facebook.com/profile.php?id=61577543876650&sk=about" target="_blank"
+                            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:sulezumar1965@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/coordinator general.jpeg" alt="Grace Daniel" class="team-avatar" />
+                    <h4>Abu Edward Emmanuel</h4>
+                    <div class="team-position">Coordinator general</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/profile.php?id=61579837832670" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:emmanueledward161@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/Dield.jpeg" alt="David Ibrahim" class="team-avatar" />
+                    <h4>Zafir Adams</h4>
+                    <div class="team-position">Director field and Planning</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/profile.php?id=100081307253934" target="_blank"
+                            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:adamszafeer@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/assistant program manager.jpeg" alt="Grace Daniel" class="team-avatar" />
+                    <h4>Abubakar Isa Ladan</h4>
+                    <div class="team-position">Assistant Program Manager</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/share/18QjbBAmDd/" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:abubakarisaladan@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/health.jpeg" alt="Fatima Yusuf" class="team-avatar" />
+                    <h4>Muhammad Musa Makpa</h4>
+                    <div class="team-position">health Department</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/profile.php?id=100081307253934" target="_blank"
+                            aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:adamszafeer@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/ict.jpeg" alt="Maryam Hassan" class="team-avatar" />
+                    <h4>Sadiq Umar</h4>
+                    <div class="team-position">Head ICT</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/profile.php?id=100004671406116" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="mailto:sadiqumarnunku@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/advert and placement.jpeg" alt="Grace Daniel" class="team-avatar" />
+                    <h4>Muhammad Abubakar Adamu</h4>
+                    <div class="team-position">Incharge Advert & placement </div>
+                    <div class="team-socials">
+                        <a href="https://www.linkedin.com/in/abubakar-muhammad-adamu-a868283a9?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:abubakarmuhammadadam2008@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="./image/soft.jpeg" alt="Grace Daniel" class="team-avatar" />
+                    <h4>Abubakar Abdulrahman Adamu (DAPPER)</h4>
+                    <div class="team-position">software developer & pentester</div>
+                    <div class="team-socials">
+                        <a href="https://www.facebook.com/profile.php?id=100056873388989" aria-label="Facebook"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/abubakar-abdurahman-adamu-61b794306" target="_blank"
+                            title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/dapper_one?igsh=MTFsZmUyZWZzeW50Yw==" target="_blank"
+                            title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://dappersinovation.github.io/dapper02.github.io-index.html/" target="_blank"
+                            title="Portfolio"><i class="fa-solid fa-globe"></i></a>
+                        <a href="mailto:abdulrahmandapper@gmail.com" aria-label="Email"><i
+                                class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <section id="activities" style="margin-top: 70px;">
+                <div class="section-header">
+                    <h2>Our Activities & Impact</h2>
+                    <p>A glimpse into our recent community outreaches, educational support, and charity drives.</p>
+                </div>
+
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <img src="./image/image3.jpeg" alt="Education Support Activity" class="activity-img" />
+                        <div class="activity-info">
+                            <h4>Educational Support</h4>
+                            <p>Providing learning materials, uniforms, and scholarships to students in underserved
+                                areas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="./image/food.jpeg" alt="Community Relief Activity" class="activity-img" />
+                        <div class="activity-info">
+                            <h4>Community Food Drives</h4>
+                            <p>Distributing essential food items and care packages to families in need during outreach
+                                campaigns.</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-card">
+                        <img src="./image/medical.jpeg" alt="Healthcare Outreach Activity" class="activity-img" />
+                        <div class="activity-info">
+                            <h4>Medical Outreaches</h4>
+                            <p>Organizing free health screenings, medical consultations, and hygiene awareness
+                                workshops.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section" id="sponsorship">
+                <h2>Partner With Us Today</h2>
+                <p>Whether you choose to sponsor a campaign or join as a volunteer, your support transforms lives.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openModal('sponsor-modal')">Sponsor a Project</button>
+                    <button class="btn btn-secondary" onclick="openModal('volunteer-modal')">Join as Volunteer</button>
+                </div>
+            </section>
+
+    </div>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Otusha Charity Foundation</h3>
+                <p>Building stronger, self-sufficient communities through compassionate action and structural support.
+                </p>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 10px; color: var(--white);">Quick Links</h4>
+                <p><a href="#about" style="color: #94a3b8; text-decoration: none;">About Us</a></p>
+                <p style="margin-top: 6px;"><a href="#leadership"
+                        style="color: #94a3b8; text-decoration: none;">Leadership</a></p>
+                <p style="margin-top: 6px;"><a href="#activities" style="color: #94a3b8; text-decoration: none;">Our
+                        Activities</a></p>
+            </div>
+
+            <div>
+                <h4 style="margin-bottom: 10px; color: var(--white);">Contact Us</h4>
+                <p style="color: #94a3b8; font-size: 0.88rem;"><i class="fa-solid fa-envelope"
+                        style="margin-right: 8px;"></i> otushacharityfoundation0@gmail.com</p>
+                <p style="color: #94a3b8; font-size: 0.88rem; margin-top: 6px;"><i class="fa-solid fa-phone"
+                        style="margin-right: 8px;"></i> +234816794404</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 Otusha Charity Foundation. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="sponsor-modal" onclick="closeModalOnOverlay(event, 'sponsor-modal')">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Sponsorship Form</h3>
+                <button class="close-btn" onclick="closeModal('sponsor-modal')">&times;</button>
+            </div>
+            <form action="https://formspree.io/f/xaeyyqkd" method="POST">
+                <input type="hidden" name="form_type" value="Sponsorship Request" />
+                <div class="form-group">
+                    <label for="sponsor-name">Full Name / Organization</label>
+                    <input type="text" id="sponsor-name" name="name" placeholder="John Doe or Acme Inc." required />
+                </div>
+                <div class="form-group">
+                    <label for="sponsor-email">Email Address</label>
+                    <input type="email" id="sponsor-email" name="email" placeholder="email@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="sponsor-type">Sponsorship Category</label>
+                    <select id="sponsor-type" name="sponsorship_type" required>
+                        <option value="Financial">Financial Support</option>
+                        <option value="In-Kind">In-Kind Donations</option>
+                        <option value="Corporate">Corporate Partnership</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sponsor-message">Additional Details</label>
+                    <textarea id="sponsor-message" name="message" rows="3" placeholder="How would you like to assist?"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit Sponsorship</button>
+            </form>
+        </div>
+    </div>
+
+    <span id="volunteer" class="section-anchor" aria-hidden="true"></span>
+    <div class="modal-overlay" id="volunteer-modal" onclick="closeModalOnOverlay(event, 'volunteer-modal')">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>Volunteer Application</h3>
+                <button class="close-btn" onclick="closeModal('volunteer-modal')">&times;</button>
+            </div>
+            <form action="https://formspree.io/f/xaeyyqkd" method="POST">
+                <input type="hidden" name="form_type" value="Volunteer Application" />
+                <div class="form-group">
+                    <label for="volunteer-name">Full Name</label>
+                    <input type="text" id="volunteer-name" name="name" placeholder="Jane Doe" required />
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-email">Email Address</label>
+                    <input type="email" id="volunteer-email" name="email" placeholder="jane@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-phone">Phone Number</label>
+                    <input type="tel" id="volunteer-phone" name="phone" placeholder="+123..." required />
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-area">Primary Area of Interest</label>
+                    <select id="volunteer-area" name="interest_area" required>
+                        <option value="Community Outreach">Community Outreach</option>
+                        <option value="Event Planning">Event Planning</option>
+                        <option value="Fundraising">Fundraising</option>
+                        <option value="Administrative">Administrative Support</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Slider JS
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 4500);
+
+
+        // Mobile Navigation
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('mobile-open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+            mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars', !isOpen);
+            icon.classList.toggle('fa-xmark', isOpen);
+        });
+
+        document.querySelectorAll('#main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('mobile-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.setAttribute('aria-label', 'Open navigation menu');
+
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 850) {
+                mainNav.classList.remove('mobile-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            }
+        });
+
+
+        const sponsorshipLink = document.querySelector('a[href="#sponsorship"]');
+        if (sponsorshipLink) {
+            sponsorshipLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                openModal('sponsor-modal');
+                mainNav.classList.remove('mobile-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        const volunteerLink = document.querySelector('a[href="#volunteer"]');
+        if (volunteerLink) {
+            volunteerLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                openModal('volunteer-modal');
+                mainNav.classList.remove('mobile-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        // Modal Control JS
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOverlay(event, id) {
+            if (event.target === document.getElementById(id)) {
+                closeModal(id);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
